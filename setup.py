@@ -4,14 +4,14 @@ from os import path, walk
 
 from setuptools import setup, find_packages
 
-#with io.open('README.pypi', 'r', encoding='utf-8') as f:
-#    ABOUT = f.read()
+with open('README.md', 'r', encoding='utf-8') as f:
+    ABOUT = f.read()
 
 NAME = 'Orange3_AutoML'
 
 MAJOR = 0
 MINOR = 0
-MICRO = 6
+MICRO = 7
 VERSION = '%d.%d.%d' % (MAJOR, MINOR, MICRO)
 
 AUTHOR = 'Chris Lee'
@@ -19,8 +19,7 @@ AUTHOR_EMAIL = 'github@chrislee.dhs.org'
 
 URL = 'https://github.com/chrislee35/orange3-automl'
 DESCRIPTION = 'Orange3 add-on for H2O AutoML Learning.'
-#LONG_DESCRIPTION = ABOUT
-LONG_DESCRIPTION = DESCRIPTION
+LONG_DESCRIPTION = ABOUT
 LICENSE = 'GPL3+'
 
 CLASSIFIERS = [
