@@ -1,0 +1,8 @@
+[orange.canvas.help]
+html-index = orangecontrib.automl.widgets:WIDGET_HELP_PATH
+
+[orange.widgets]
+H2O AutoML = orangecontrib.automl.widgets
+
+[orange3.addon]
+Orange3-AutoML = orangecontrib.automl
