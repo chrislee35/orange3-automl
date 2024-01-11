@@ -11,7 +11,7 @@ NAME = 'Orange3_AutoML'
 
 MAJOR = 0
 MINOR = 0
-MICRO = 7
+MICRO = 9
 VERSION = '%d.%d.%d' % (MAJOR, MINOR, MICRO)
 
 AUTHOR = 'Chris Lee'
