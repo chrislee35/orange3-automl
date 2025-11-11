@@ -2,33 +2,34 @@ from orangecanvas.localization import Translator  # pylint: disable=wrong-import
 _tr = Translator("orangecontrib.automl", "biolab.si", "Orange")
 del Translator
 
+
 from AnyQt.QtCore import Qt
 from Orange.data import Table
 from Orange.widgets import gui
 from Orange.widgets.settings import Setting
 from Orange.widgets.utils.owlearnerwidget import OWBaseLearner
 from Orange.widgets.utils.widgetpreview import WidgetPreview
-from orangecontrib.automl.automl import H2OAutoMLLearner
+from orangecontrib.automl.autosklearn import AutoSklearnLearner
 debug = None
 
-class OWAutoML(OWBaseLearner):
-    name = _tr.m[1, 'H2O AutoML']
-    description = _tr.m[4, 'Runs H2O AutoML']
-    icon = 'icons/h2o-logo.svg'
+class OWAutoSklearn(OWBaseLearner):
+    name = _tr.m[8, 'AutoSklearn']
+    description = _tr.m[10, 'Runs AutoSklearn']
+    icon = 'icons/autosklearn-logo.svg'
     priority = 80
     keywords = 'automl'
-    LEARNER = H2OAutoMLLearner
-    max_runtime_secs = Setting(2)
+    LEARNER = AutoSklearnLearner
+    max_runtime_secs = Setting(60)
     use_random_seed = Setting(False)
     random_seed = Setting(0)
 
     def add_main_layout(self):
         box = gui.widgetBox(self.controlArea, 'Parameters')
         self.random_seed_spin = gui.spin(box, self, 'random_seed', 0, 2 ** 31 - 1, controlWidth=80, label=_tr.m[0, 'Fixed seed for random generator:'], alignment=Qt.AlignRight, callback=self.settings_changed, checked='use_random_seed', checkCallback=self.settings_changed)
-        self.max_runtime_spin = gui.spin(box, self, 'max_runtime_secs', 0, 3600, controlWidth=80, label=_tr.m[1, 'Max Runtime for AutoML:'], alignment=Qt.AlignRight, callback=self.settings_changed)
+        self.max_runtime_spin = gui.spin(box, self, 'max_runtime_secs', 0, 3600, controlWidth=80, label=_tr.m[9, 'Max runtime for AutoSklearn:'], alignment=Qt.AlignRight, callback=self.settings_changed)
         gui.widgetLabel(box, label=_tr.m[2, 'Leaderboard'])
         self.leaderboard = gui.table(box, rows=10, columns=2)
-        self.leaderboard.setHorizontalHeaderLabels(['Model', 'MPCE'])
+        self.leaderboard.setHorizontalHeaderLabels(['Model', 'Score'])
         self.leaderboard.setColumnWidth(0, 225)
         self.leaderboard.setColumnWidth(1, 50)
 
@@ -45,12 +46,13 @@ class OWAutoML(OWBaseLearner):
         leaderboard_df = self.model.leaderboard()
         if leaderboard_df is None:
             return
-        leaderboard = sorted(leaderboard_df[['model_id', 'mean_per_class_error']].values.tolist(), key=lambda x: x[1])
+        leaderboard = sorted(leaderboard_df[['model', 'score']].values.tolist(), key=lambda x: x[1], reverse=True)
         for y in range(min(10, len(leaderboard))):
             for x in range(len(leaderboard[y])):
                 if x == 0:
                     gui.tableItem(self.leaderboard, y, x, leaderboard[y][x])
                 else:
                     gui.tableItem(self.leaderboard, y, x, '%0.3f' % leaderboard[y][x])
+
 if __name__ == '__main__':
-    WidgetPreview(OWAutoML).run(Table('iris'))
+    WidgetPreview(OWAutoSklearn).run(Table('iris'))

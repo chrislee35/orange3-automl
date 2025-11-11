@@ -9,7 +9,7 @@ import sysconfig
 NAME = "H2O AutoML"
 DESCRIPTION = "AutoML Widgets"
 
-ICON = "icons/h2o-logo.svg"
+ICON = "icons/automl.svg"
 PRIORITY = 1000
 BACKGROUND = "#ffe600"
 

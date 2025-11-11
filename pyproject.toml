@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "orange3-automl"
-version = "0.1.0"
+version = "0.1.2"
 description = "Orange3 add-on for H2O and AutoGluon AutoML Learning."
 readme = "README.md"
 requires-python = ">=3.12"
@@ -22,7 +22,11 @@ classifiers = [
 dependencies = [
     "Orange3 >= 3.34.0",
     "h2o >= 3.44",
-    "autogluon >= 1.4.0"
+    "autogluon >= 1.4.0",
+    "auto-sklearn2 >= 1.0.0",
+    # work around the xgboost/scikit-learn bug activated by autogluon 1.4.0
+    # when autogluon 1.5 comes out, I should be able to remove this.
+    "xgboost == 2.0.2"
 ]
 
 [license]

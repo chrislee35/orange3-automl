@@ -23,8 +23,7 @@ class AutoGluonClassifier(Model):
         X = pd.DataFrame(data, columns=self.columns)
         test = TabularDataset(X)
         predictions = self.model.predict(test)
-        y = np.array(predictions.as_data_frame())[:, 0]
-        return y
+        return predictions
     
     def leaderboard(self) -> pd.DataFrame:
         return self.model.leaderboard()
@@ -44,7 +43,7 @@ class AutoGluonLearner(Learner):
 if __name__ == "__main__":
     learner = AutoGluonLearner(eval_metric='accuracy')
     from Orange.data import Table
-    data = Table('iris')
+    data = Table('/home/chris/.local/share/Orange/3.39.0/datasets/core/breast-cancer.tab')
     classifier = learner.fit_storage(data)
     leaderboard = classifier.leaderboard()
     print(leaderboard)

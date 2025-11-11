@@ -6,5 +6,8 @@
   "Runs H2O AutoML",
   "AutoGluon",
   "Max Runtime for AutoGluon",
-  "Runs AutoGluon"
+  "Runs AutoGluon",
+  "AutoSklearn",
+  "Max runtime for AutoSklearn",
+  "Runs AutoSklearn"
 ]
