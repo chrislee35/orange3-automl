@@ -13,8 +13,8 @@ from orangecontrib.automl.autosklearn import AutoSklearnLearner
 debug = None
 
 class OWAutoSklearn(OWBaseLearner):
-    name = _tr.m[8, 'AutoSklearn']
-    description = _tr.m[10, 'Runs AutoSklearn']
+    name = _tr.m[9, 'AutoSklearn']
+    description = _tr.m[6, "Orange Widget for {}"].format(_tr.m[9, 'AutoSklearn'])
     icon = 'icons/autosklearn-logo.svg'
     priority = 80
     keywords = 'automl'
@@ -24,12 +24,13 @@ class OWAutoSklearn(OWBaseLearner):
     random_seed = Setting(0)
 
     def add_main_layout(self):
-        box = gui.widgetBox(self.controlArea, 'Parameters')
-        self.random_seed_spin = gui.spin(box, self, 'random_seed', 0, 2 ** 31 - 1, controlWidth=80, label=_tr.m[0, 'Fixed seed for random generator:'], alignment=Qt.AlignRight, callback=self.settings_changed, checked='use_random_seed', checkCallback=self.settings_changed)
-        self.max_runtime_spin = gui.spin(box, self, 'max_runtime_secs', 0, 3600, controlWidth=80, label=_tr.m[9, 'Max runtime for AutoSklearn:'], alignment=Qt.AlignRight, callback=self.settings_changed)
-        gui.widgetLabel(box, label=_tr.m[2, 'Leaderboard'])
+        box = gui.widgetBox(self.controlArea, _tr.m[2, "Settings"])
+
+        self.random_seed_spin = gui.spin(box, self, 'random_seed', 0, 2 ** 31 - 1, controlWidth=80, label=_tr.m[0, 'Fixed seed for random generator'], alignment=Qt.AlignRight, callback=self.settings_changed, checked='use_random_seed', checkCallback=self.settings_changed)
+        self.max_runtime_spin = gui.spin(box, self, 'max_runtime_secs', 0, 3600, controlWidth=80, label=_tr.m[3, 'Max runtime'], alignment=Qt.AlignRight, callback=self.settings_changed)
+        gui.widgetLabel(box, label=_tr.m[1, 'Leaderboard'])
         self.leaderboard = gui.table(box, rows=10, columns=2)
-        self.leaderboard.setHorizontalHeaderLabels(['Model', 'Score'])
+        self.leaderboard.setHorizontalHeaderLabels([_tr.m[4,'Model'], _tr.m[5,'Score'] ])
         self.leaderboard.setColumnWidth(0, 225)
         self.leaderboard.setColumnWidth(1, 50)
 

@@ -12,23 +12,23 @@ from orangecontrib.automl.automl_h2o import H2OAutoMLLearner
 debug = None
 
 class OWh2o(OWBaseLearner):
-    name = _tr.m[1, 'H2O AutoML']
-    description = _tr.m[4, 'Runs H2O AutoML']
+    name = _tr.m[7, 'H2O AutoML']
+    description = _tr.m[6, "Orange Widget for {}"].format(_tr.m[7, 'H2O AutoML'])
     icon = 'icons/h2o-logo.svg'
     priority = 80
     keywords = 'automl'
     LEARNER = H2OAutoMLLearner
-    max_runtime_secs = Setting(2)
+    max_runtime_secs = Setting(60)
     use_random_seed = Setting(False)
     random_seed = Setting(0)
 
     def add_main_layout(self):
-        box = gui.widgetBox(self.controlArea, 'Parameters')
-        self.random_seed_spin = gui.spin(box, self, 'random_seed', 0, 2 ** 31 - 1, controlWidth=80, label=_tr.m[0, 'Fixed seed for random generator:'], alignment=Qt.AlignRight, callback=self.settings_changed, checked='use_random_seed', checkCallback=self.settings_changed)
-        self.max_runtime_spin = gui.spin(box, self, 'max_runtime_secs', 0, 3600, controlWidth=80, label=_tr.m[1, 'Max Runtime for AutoML:'], alignment=Qt.AlignRight, callback=self.settings_changed)
-        gui.widgetLabel(box, label=_tr.m[2, 'Leaderboard'])
+        box = gui.widgetBox(self.controlArea, _tr.m[2, "Settings"])
+        self.random_seed_spin = gui.spin(box, self, 'random_seed', 0, 2 ** 31 - 1, controlWidth=80, label=_tr.m[0, 'Fixed seed for random generator'], alignment=Qt.AlignRight, callback=self.settings_changed, checked='use_random_seed', checkCallback=self.settings_changed)
+        self.max_runtime_spin = gui.spin(box, self, 'max_runtime_secs', 0, 3600, controlWidth=80, label=_tr.m[3, 'Max runtime'], alignment=Qt.AlignRight, callback=self.settings_changed)
+        gui.widgetLabel(box, label=_tr.m[1, 'Leaderboard'])
         self.leaderboard = gui.table(box, rows=10, columns=2)
-        self.leaderboard.setHorizontalHeaderLabels(['Model', 'MPCE'])
+        self.leaderboard.setHorizontalHeaderLabels([_tr.m[4,'Model'], _tr.m[5,'Score'] ])
         self.leaderboard.setColumnWidth(0, 225)
         self.leaderboard.setColumnWidth(1, 50)
 
@@ -52,5 +52,6 @@ class OWh2o(OWBaseLearner):
                     gui.tableItem(self.leaderboard, y, x, leaderboard[y][x])
                 else:
                     gui.tableItem(self.leaderboard, y, x, '%0.3f' % leaderboard[y][x])
+
 if __name__ == '__main__':
     WidgetPreview(OWh2o).run(Table('iris'))

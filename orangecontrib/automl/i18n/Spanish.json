@@ -1,10 +1,13 @@
 [
-  "Semillas fijas para generador aleatorio:",
-  "H2O AutoML",
+  "Semilla fija para generador aleatorio",
   "Leaderboard",
-  "Max Runtime for AutoML:",
-  "Corre H2O AutoML",
+  "Ajustes",
+  "Hora de correr",
+  "Modelo",
+  "Puntuaci\u00f3n",
+  "Naranja Widget para {}",
+  "H2O AutoML",
   "AutoGluon",
-  "Max Runtime para AutoGluon",
-  "Corre AutoGluon"
+  "AutoSklearn",
+  "Evaluaci\u00f3n m\u00e9trica"
 ]

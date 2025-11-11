@@ -1,10 +1,13 @@
 [
-  "Befestigtes Saatgut f\u00fcr Zufallsgenerator:",
-  "H2O AutoML",
+  "Feste Samen f\u00fcr Zufallsgenerator",
   "Leadership",
-  "Max Runtime f\u00fcr AutoML:",
-  "L\u00e4uft H2O AutoML",
+  "Einstellungen",
+  "Maximale Laufzeit",
+  "Modell",
+  "Ergebnis",
+  "Orange Widget f\u00fcr {}",
+  "H2O AutoML",
   "AutoGlun",
-  "Max Runtime f\u00fcr AutoGluon",
-  "Runs AutoGluon"
+  "AutoSklearanlagen",
+  "Bewertungsmetrik"
 ]

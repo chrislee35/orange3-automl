@@ -1,10 +1,13 @@
 [
   "Fiksno seme za naklju\u010dne generatorje:",
-  "SamodejnoML H2O",
   "Vodstvo",
-  "Najve\u010dji \u010das delovanja za AutoML:",
-  "Poganja samodejnoML H2O",
+  "Vodstvo",
+  "Najve\u010dji \u010das delovanja",
+  "Vzorec",
+  "Rezultat",
+  "Oran\u017eni gradnik za {}",
+  "AutoML H2O",
   "AutoGluon",
-  "Najve\u010dji \u010das delovanja za Autogluon",
-  "Poganja AutoGluon"
+  "AutoSklearn",
+  "Merilo ocenjevanja"
 ]

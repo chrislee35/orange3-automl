@@ -1,13 +1,13 @@
 [
-  "Fixed seed for random generator:",
-  "H2O AutoML",
+  "Fixed seed for random generator",
   "Leaderboard",
-  "Max Runtime for AutoML:",
-  "Runs H2O AutoML",
+  "Settings",
+  "Max runtime",
+  "Model",
+  "Score",
+  "Orange Widget for {}",
+  "H2O AutoML",
   "AutoGluon",
-  "Max Runtime for AutoGluon",
-  "Runs AutoGluon",
   "AutoSklearn",
-  "Max runtime for AutoSklearn",
-  "Runs AutoSklearn"
+  "Evaluation metric"
 ]

@@ -1,10 +1,13 @@
 [
-  "Graines fixes pour g\u00e9n\u00e9rateur al\u00e9atoire:",
-  "H2O AutoML",
+  "Graines fixes pour g\u00e9n\u00e9rateur al\u00e9atoire",
   "Tableau de bord",
-  "Max Runtime pour AutoML:",
-  "Ex\u00e9cute H2O AutoML",
+  "Param\u00e8tres",
+  "Dur\u00e9e maximale",
+  "Mod\u00e8le",
+  "Score",
+  "Widget orange pour {}",
+  "H2O AutoML",
   "AutoGluon",
-  "Max Runtime pour AutoGluon",
-  "Lance AutoGluon"
+  "AutoSklearn",
+  "Mesure d'\u00e9valuation"
 ]

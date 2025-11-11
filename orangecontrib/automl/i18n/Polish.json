@@ -1,10 +1,13 @@
 [
-  "Materia\u0142 siewny do losowego generatora:",
-  "H2O AutoML",
+  "Nasiona sta\u0142e dla generatora losowego",
   "Leaderboard",
-  "Max Runtime for AutoML:",
-  "Runs H2O AutoML",
+  "Ustawienia",
+  "Max runtime",
+  "Wz\u00f3r",
+  "Wynik",
+  "Pomara\u0144czowy widget dla {}",
+  "H2O AutoML",
   "AutoGluon",
-  "Max Runtime for AutoGluon",
-  "Runs AutoGluon"
+  "AutoSklearn",
+  "Ocena metryczna"
 ]

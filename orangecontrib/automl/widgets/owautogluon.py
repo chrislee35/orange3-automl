@@ -12,8 +12,8 @@ from orangecontrib.automl.autogluon import AutoGluonLearner
 debug = None
 
 class OWAutoGluon(OWBaseLearner):
-    name = _tr.m[5, 'AutoGluon']
-    description = _tr.m[7, 'Runs AutoGluon']
+    name = _tr.m[8, 'AutoGluon']
+    description = _tr.m[6, "Orange Widget for {}"].format(_tr.m[8, 'AutoGluon'])
     icon = 'icons/autogluon-logo.svg'
     priority = 80
     keywords = 'autogluon'
@@ -30,16 +30,16 @@ class OWAutoGluon(OWBaseLearner):
             ['root_mean_squared_error', 'mean_squared_error', 'mean_absolute_error', 'median_absolute_error', 'mean_absolute_percentage_error', 'r2', 'symmetric_mean_absolute_percentage_error']
 
     def add_main_layout(self):
-        box = gui.widgetBox(self.controlArea, 'Parameters')
+        box = gui.widgetBox(self.controlArea, _tr.m[2, "Settings"])
 
-        self.eval_metric_combo = gui.comboBox(box, self, "eval_metric", items=OWAutoGluon.EVAL_METRICS, callback=self.settings_changed)
-        self.max_runtime_spin = gui.spin(box, self, 'max_runtime_secs', 0, 3600, controlWidth=80, label=_tr.m[1, 'Max Runtime for AutoGluon:'], alignment=Qt.AlignRight, callback=self.settings_changed)
+        self.eval_metric_combo = gui.comboBox(box, self, "eval_metric", items=OWAutoGluon.EVAL_METRICS, callback=self.settings_changed, label=_tr.m[10, "Evaluation metric"])
+        self.max_runtime_spin = gui.spin(box, self, 'max_runtime_secs', 0, 3600, controlWidth=80, label=_tr.m[3, 'Max runtime'], alignment=Qt.AlignRight, callback=self.settings_changed)
         self.controlArea.layout().setAlignment(Qt.AlignTop)
         
-        box2 = gui.widgetBox(self.mainArea, "Leaderboard")
-        gui.widgetLabel(box2, label=_tr.m[2, 'Leaderboard'])
+        box2 = gui.widgetBox(self.mainArea, _tr.m[1, 'Leaderboard'])
+        gui.widgetLabel(box2, label=_tr.m[1, 'Leaderboard'])
         self.leaderboard = gui.table(box2, rows=10, columns=2)
-        self.leaderboard.setHorizontalHeaderLabels(['Model', 'Score'])
+        self.leaderboard.setHorizontalHeaderLabels([_tr.m[4,'Model'], _tr.m[5,'Score'] ])
         self.leaderboard.setColumnWidth(0, 225)
         self.leaderboard.setColumnWidth(1, 50)
         self.mainArea.layout().setAlignment(Qt.AlignTop)
